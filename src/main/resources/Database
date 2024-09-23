@@ -1,0 +1,113 @@
+mandatory-columns: createdby varchar(50), createddate timestamp, updatedby varchar(50), updateddate timestamp, delflag varchar(50)
+
+table: t_amgreat_apps: id varchar(50), pid varchar(50), label varchar(100), description varchar(200), iconid varchar(50), status varchar(50)
+
+record: eCommerce;online eCommerce product management and O2C;iconid;active
+record: Warehousing Management System; Warehousing management system;iconid;active
+record: Payment Gateway;Payment Gateway;iconid;active
+record: CRM;online eCommerce product management and O2C;iconid;active
+record: Loan Originating System;Loan originating system;iconid;active
+record: Multi-Finance System;Loan originating system;iconid;active
+record: Finance System;Finance Management;iconid;active
+record: Notification Gateway; Notification Gateway;iconid;active
+record: IOT;Smart House, Smart Office, Smart Logistics;iconid;active
+
+table: t_a_a_template: id varchar(50), pid varchar(50), label varchar(100), description varchar(200), template text, status varchar(50)
+
+table: t_a_a_t_version: id varchar(50), pid varchar(50), version varchar(100), description varchar(200), src_path text, status varchar(50)
+
+table: t_a_a_log: id varchar(50), pid varchar(50), description varchar(200), src_path text, status varchar(50)
+ 
+table: t_tenant: id varchar(50), pid varchar(50), accountno name varchar(200), legalname varchar(200), brandname varchar(200), description varchar(200), dob varchar(30), dobcity varchar(200), idtype varchar(50), idno varchar(50), photoid varchar(50), status varchar(50)
+record: T0000000001;AMGREAT Pte ltd;AMGREAT; Amgreat is a startup working for Application Transformation;16-02-1984;Jakarta;ID Company;1234567890123456; photoid; active
+
+table: t_tenant_db: id varchar(50), pid varchar(50), dbip varchar(20), dbname varchar(100), dbport varchar(5), vaultuserid varchar(200), vaultpwd varchar(200), certpath varchar(200), status varchar(50)
+record: 172.0.0.1;amgreatdb;5432;amgreat;amgreat;certpath;active
+
+table: t_org_function: id varchar(50), pid varchar(50), label varchar(100), description varchar(200), status varchar(50)
+
+table: t_org_function_dept: id varchar(50), pid varchar(50), label varchar(100), lvl1_menuid varchar(50), description varchar(200), status varchar(50)
+
+table: t_org_function_member: id varchar(50), pid varchar(50), personid varchar(50), role varchar(100), description varchar(200), status varchar(50)
+
+table: t_menu: id varchar(50), pid varchar(50), menu_level varchar(50), label varchar(100), description varchar(100), formid varchar(50), icon varchar(200), status varchar(50)
+
+table: t_columns: id varchar(50), pid varchar(50), label varchar(100), description varchar(200), data_type varchar(50), template text, status varchar(50)
+
+record: textfield; capture text input from browser;str; template html; active
+record: textarea; capture multi row text input from browser; str; template html; active
+record: text-money; capture text input money from browser; decimal; template html; active
+record: list; capture opted value of a list from browser; str; template html; active
+record: date; capture date value from browser; date; template html; active 
+record: text-float; capture text-float value from browser; float; template html; active
+record: text-double; capture text-double value from browser; decimal; template html; active
+record: text-int; capture text-int value from browser; smallint; template html; active
+
+table: t_form: id varchar(50), pid varchar(50), label varchar(100), description varchar(200), tablename varchar(50), issql varchar(50), sqlid varchar(50), status varchar(50)
+
+table: t_form_columns : id varchar(50), pid varchar(50), label varchar(100), t_col_id varchar(100), tbl_col_nm varchar(50), seqno smallint, def_val varchar(50), issql varchar(50), is_attribute_list varchar(50), sqlid varchar(50), attribute_grp_id varchar(50), nullable varchar(50), maxlength smallint, status varchar(50)
+
+table: t_f_col_sql: id varchar(50), pid varchar(50), sql text, status varchar(50)
+
+table: t_form_template: id varchar(50), pid varchar(50), view_template text, status varchar(50)
+
+table: t_policy: id varchar(50), pid varchar(50), label varchar(200), status varchar(50)
+
+table: t_policy_obj: id varchar(50), pid varchar(50), object_type varchar(50), objectid varchar(100), label varchar(200), description varchar(200), viewable varchar(50), createable varchar(50), editable varchar(50), apiable varchar(50), downloadable varchar(50), shareable varchar(50), status varchar(50)
+
+table: t_role: id varchar(50), pid varchar(50), label varchar(200), description varchar(200), status varchar(50)
+
+table: t_role_policies: id varchar(50), pid varchar(50), policy_id varchar(50), status varchar(50)
+
+table: t_role_members: id varchar(50), pid varchar(50), personid varchar(50), status varchar(50)
+
+table: t_role_group: id varchar(50), pid varchar(50), groupid varchar(50), status varchar(50)
+
+table: t_group: id varchar(50), pid varchar(50), label varchar(200), description varchar(200), status varchar(50)
+
+table: t_group_members: id varchar(50), pid varchar(50), personid varchar(50), description varchar(200), status varchar(50)
+   
+table: t_group_members: id varchar(50), pid varchar(50), personid varchar(50), description varchar(200), status varchar(50)
+
+table: t_users: id varchar(50), pid varchar(50), userid varchar(200), password varchar(200), email varchar(200), isverified varchar(50), ismfa varchar(50), mfatargetid varchar(50), isfmaverified varchar(50), description varchar(200), status varchar(50)
+
+table: t_users_role: id varchar(50), pid varchar(50), roleid varchar(50), status varchar(50)
+
+table: t_types: id varchar(50), pid varchar(50), label varchar(100), description varchar(100), dt_type varchar(50)
+
+record:int; integer data type; int
+record:string; string data type; varchar
+record:date; date data type; date
+record:double; double data type for money; double
+record:float; float data type for currency; float
+record:decimal; decimal data type for currency in mariadb; decimal
+
+table: t_attribute_groups: id varchar(50), pid varchar(50), label varchar(100), description varchar(100), status varchar(50)
+
+record:Sex; gender of the people; active
+record:Nationality; country of nationality of the people; active
+record:Province; location of the people; active
+record:Address Type; type of address (mailing, main, office, home); active
+record:Currency; type of currency based on nationality; active
+record:Role; specialist of employment; active
+record:Personal referral; type of reference (mother, father, manager, sibling, wife, husband); active
+record:Education level; (Diploma, Sarjana, Pasca Sarjana, Doktor, Professor); active
+record:Employment Type; (Contract, Full Time, Freelance, Permanent); active
+record:Organization Type; (Government, State Owned Company, Private Institution, NGO, Religion, Education Institution); active  
+record:Document Type; (CV, Resume, Photo, Certificate, License, Transcript, Contract, Reference Letter, Other); active
+record:Menu Level; (1st, 2nd, 3rd, independent page); active
+record:Page Data Type; (Text Box, List, Date Pick List, Int, Money, File, Text Area); active
+
+table: t_attributes: id varchar(50), pid varchar(50), label varchar(100), description varchar(100), status varchar(50)
+
+table: t_person: id varchar(50), pid varchar(50), legalname varchar(200), brandname varchar(200), description varchar(200), dob varchar(30), dobcity varchar(200), idtype varchar(50), idno varchar(50), photoid varchar(50), status varchar(50)
+
+table: t_address: id varchar(50), pid varchar(50), line1 varchar(100), line2 varchar(100), city varchar(100), province varchar(100), country varchar(50), postal_code varchar(10), address_type varchar(50), status varchar(50)
+
+table: t_document: id varchar(50), pid varchar(50), document_type varchar(50), description varchar(100), uri varchar(200), status varchar(50)
+
+table: t_file: id varchar(50), pid varchar(50), label varchar(100), description varchar(200), status varchar(50), uri varchar(200)
+
+table: t_reference: id varchar(50), pid varchar(50), name varchar(100), role varchar(50), phone varchar(50), email varchar(200), status varchar(50), uri varchar(200)
+
+table: t_contact: id varchar(50), pid varchar(50), label varchar(100), phone varchar(50), email varchar(200), status varchar(50)
