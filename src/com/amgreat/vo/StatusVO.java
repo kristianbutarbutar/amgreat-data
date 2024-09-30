@@ -3,6 +3,7 @@ package com.amgreat.vo;
 public class StatusVO {
 	private String description;
 	private String code;
+	
 	public String getDescription() {
 		return description;
 	}

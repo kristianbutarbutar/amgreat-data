@@ -100,6 +100,11 @@ public class DBConnect {
 					
 					System.out.println(" before setVal["+key+"] = " + val + ", type = " + type);
 					
+					if( val != null && ( val.equalsIgnoreCase("ISNOTNULL") || val.equalsIgnoreCase("ISNULL") ) ) {
+						rv = rv.getNext();
+						continue;
+					}
+					
 					switch (type) {
 						case "str":
 							stmt.setString(key, val);break;

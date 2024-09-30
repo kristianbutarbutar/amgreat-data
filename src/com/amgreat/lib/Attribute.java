@@ -100,12 +100,17 @@ public class Attribute {
 			
 			rqvo = new RequestVO(); rqvo.setName(vo.getName()); rqvo.setVal(vo.getValue()); rqvo.setType( vo.getType()); rqvo.setNext(new RequestVO());
 			
-			p += "," + vo.getColumnName() + "=?"; 
-			
+			//p = p + vo.getColumnName() + "=? and ";
+			if( rqvo!=null && rqvo.getVal()!=null && rqvo.getVal().equalsIgnoreCase("ISNOTNULL") ) {
+				p = p + vo.getColumnName() + " is not null and ";
+			} else if(rqvo!=null && rqvo.getVal()!=null && rqvo.getVal().equalsIgnoreCase("ISNULL")) {
+				p = p + vo.getColumnName() + " is null and ";
+			} else if(rqvo!=null && rqvo.getVal()!=null ) {
+				p = p + vo.getColumnName() + "=? and ";
+			}
 			return this.wrapWhere(vo.getNext(), rqvo.getNext(), p);
-			
 		}
-		return (p.length() > 1 ? p.substring(1) : "");
+		return (p.length() > 1 ? p.trim().substring(0, p.length()-4) : "");
 	}
 
 	public RequestVO wrapVOD(AttributeVO vo, RequestVO rqvo) {

@@ -17,7 +17,7 @@ public class DBController {
 	@Autowired private DBWrapperInterface db;
 	
 	
-	@PostMapping("/api/amgreat/data/cmd")
+	@PostMapping("/amgreat/api/data/cmd")
 	public RecordVO doCommand(@RequestBody AttributeVO r) {
 		RecordVO rp = new RecordVO();
 		try {
@@ -29,7 +29,7 @@ public class DBController {
 	}
 
 		
-	@RequestMapping("/api/amgreat/data/ping")
+	@RequestMapping("/amgreat/api/data/ping")
 	public RecordVO getCommand(){
 		
 		AttributeVO req = new AttributeVO(); AttributeVO preq = req;

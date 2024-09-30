@@ -49,7 +49,7 @@ table: t_form_columns : id varchar(50), pid varchar(50), label varchar(100), t_c
 
 table: t_f_col_sql: id varchar(50), pid varchar(50), sql text, status varchar(50)
 
-table: t_form_template: id varchar(50), pid varchar(50), view_template text, status varchar(50)
+table: t_form_template: id varchar(50), pid varchar(50), viewtype varchar(50), view_template text, status varchar(50)
 
 table: t_policy: id varchar(50), pid varchar(50), label varchar(200), status varchar(50)
 
